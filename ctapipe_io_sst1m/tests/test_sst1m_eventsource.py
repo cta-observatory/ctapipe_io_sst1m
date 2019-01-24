@@ -60,7 +60,7 @@ def test_is_compatible():
 
 def test_interation():
     from ctapipe.io import event_source
-    source = event_source(input_url=example_file_path, max_events=10)
+    source = event_source(example_file_path, max_events=10)
     assert isinstance(source, SST1MEventSource)
     for event in source:
         assert event
