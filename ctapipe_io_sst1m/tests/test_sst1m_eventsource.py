@@ -57,17 +57,9 @@ def test_that_event_is_not_modified_after_loop():
 def test_is_compatible():
     assert SST1MEventSource.is_compatible(example_file_path)
 
-def test_EventSourceFactory():
-    from ctapipe.io.eventsourcefactory import EventSourceFactory
-    print(EventSourceFactory.subclasses)
-    source = EventSourceFactory.produce(input_url=example_file_path, max_events=10)
-    assert isinstance(source, SST1MEventSource)
-    for event in source:
-        assert event
-
 
 def test_interation():
-    from ctapipe.io.eventsourcefactory import event_source
+    from ctapipe.io import event_source
     source = event_source(input_url=example_file_path, max_events=10)
     assert isinstance(source, SST1MEventSource)
     for event in source:
